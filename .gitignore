@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Cloudflare build, generated types & local state
+.cloudflare/
+dist/
+
+# Local private docs & reference notes (not committed)
+docs/
+AGENTS.md
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# macOS / Editor
+.DS_Store
+*.log

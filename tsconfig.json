@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "types": ["./.cloudflare/types/index.d.ts"]
+  },
+  "include": ["src", "cloudflare.config.ts", "vite.config.ts"]
+}
