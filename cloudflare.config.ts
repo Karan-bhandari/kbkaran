@@ -1,6 +1,6 @@
 import { defineConfig } from "cf/config";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   worker: {
     name: "kbkaran",
     compatibilityDate: "2026-11-01",
@@ -8,10 +8,7 @@ export default defineConfig(({ mode }) => ({
     // Uncomment when adding server-side Worker routes later:
     // entrypoint: "./src/index.ts",
 
-    domains: [
-      "kbkaran.com",
-      "www.kbkaran.com",
-    ],
+    domains: ["kbkaran.com", "www.kbkaran.com"],
 
     assets: {
       htmlHandling: "auto-trailing-slash",
