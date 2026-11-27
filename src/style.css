@@ -1,0 +1,243 @@
+/* Flexoki palette using native CSS light-dark() */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fffcf0, #100f0f);
+  --surface: light-dark(#f2f0e5, #1c1b1a);
+  --fg: light-dark(#100f0f, #cecdc3);
+  --muted: light-dark(#6f6e69, #878580);
+  --border: light-dark(#e6e4d9, #282726);
+  --accent: light-dark(#24837b, #3aa99f);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvh;
+  padding-block: clamp(2.25rem, 7dvh, 4.5rem) 3rem;
+  padding-inline: 1.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font:
+    1rem / 1.65 system-ui,
+    -apple-system,
+    sans-serif;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+a {
+  color: var(--fg);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.25em;
+}
+
+a[href]:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.page {
+  inline-size: 100%;
+  max-inline-size: 38rem;
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  padding-block-end: 1.25rem;
+  border-block-end: 1px solid var(--border);
+}
+
+.site-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.site-title:hover {
+  color: var(--accent);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  padding-block: 0.15rem;
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.project-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 500;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: var(--fg);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+
+.project-list a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-list .arrow {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.project-list a:hover .arrow {
+  color: var(--accent);
+}
+
+#theme-toggle {
+  background: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding-block: 0.3rem;
+  padding-inline: 0.75rem;
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--muted);
+}
+
+main {
+  padding-block-start: 1.75rem;
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-block: 0 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+p {
+  margin-block: 0 1rem;
+}
+
+p:last-child {
+  margin-block-end: 0;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-block-start: 1.75rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--border);
+}
+
+.link-placeholder {
+  color: var(--muted);
+}
+
+@media (forced-colors: active) {
+  .site-nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-color: LinkText;
+  }
+
+  .project-list a,
+  #theme-toggle {
+    border-color: ButtonBorder;
+  }
+}

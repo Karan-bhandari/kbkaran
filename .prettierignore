@@ -1,0 +1,4 @@
+.cloudflare/
+dist/
+docs/
+package-lock.json
